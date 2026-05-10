@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Employee Voice — Capital Fine Meats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -21,6 +21,12 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
 
   body {
     font-family: 'Open Sans', sans-serif;
@@ -807,27 +813,40 @@
       document.getElementById('msg-text').value.length;
   }
 
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwYfaDybpebfVEw0xOn3Exf_gXaFvhxQ5ZCc_zURPNwndcbnq6uC3zknUjD7VnDia8E6g/exec';
+
   function submitFeedback() {
     const msg = document.getElementById('msg-text').value.trim();
     if (!selectedCat) { alert('Please choose a category first.'); return; }
     if (!msg) { alert('Please write your message before submitting.'); return; }
 
+    const btn = document.querySelector('.btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
     const entry = {
-      id: Date.now(),
       category: selectedCat,
       message: msg,
-      author: document.getElementById('name-input').value.trim() || 'Anonymous',
-      date: new Date().toLocaleDateString('en-CA', {
-        year: 'numeric', month: 'short', day: 'numeric',
-        hour: '2-digit', minute: '2-digit'
-      })
+      author: document.getElementById('name-input').value.trim() || 'Anonymous'
     };
 
-    entries.unshift(entry);
-    localStorage.setItem('cfm_feedback', JSON.stringify(entries));
-
-    document.getElementById('form-section').style.display = 'none';
-    document.getElementById('success-card').style.display = 'block';
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(entry)
+    })
+    .then(() => {
+      document.getElementById('form-section').style.display = 'none';
+      document.getElementById('success-card').style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Submit Feedback';
+    })
+    .catch(() => {
+      alert('Something went wrong. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Submit Feedback';
+    });
   }
 
   function resetForm() {
