@@ -19,22 +19,22 @@
     --gray-text: #777777;
     --radius: 8px;
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   html, body {
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
   }
-
+ 
   body {
     font-family: 'Open Sans', sans-serif;
     background: var(--gray-light);
     color: var(--black);
     min-height: 100vh;
   }
-
+ 
   /* HEADER */
   header {
     background: var(--white);
@@ -45,7 +45,7 @@
     gap: 14px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   }
-
+ 
   .logo-mark {
     width: 42px;
     height: 42px;
@@ -61,7 +61,7 @@
     flex-shrink: 0;
     letter-spacing: -0.03em;
   }
-
+ 
   .logo-text {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
@@ -70,7 +70,7 @@
     letter-spacing: 0.01em;
     line-height: 1.15;
   }
-
+ 
   .logo-text span {
     display: block;
     font-size: 0.6rem;
@@ -80,9 +80,9 @@
     text-transform: uppercase;
     color: var(--gray-text);
   }
-
+ 
   .header-sep { flex: 1; }
-
+ 
   .header-badge {
     background: var(--gold-light);
     border: 1px solid var(--gold);
@@ -95,14 +95,14 @@
     text-transform: uppercase;
     color: var(--gold-dark);
   }
-
+ 
   /* HERO */
   .hero {
     background: linear-gradient(135deg, var(--gold) 0%, #e09600 100%);
     text-align: center;
     padding: 48px 24px 40px;
   }
-
+ 
   .hero h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: clamp(1.7rem, 5vw, 2.6rem);
@@ -112,7 +112,7 @@
     letter-spacing: -0.01em;
     text-shadow: 0 2px 8px rgba(0,0,0,0.12);
   }
-
+ 
   .hero p {
     font-size: 0.97rem;
     color: rgba(255,255,255,0.88);
@@ -121,7 +121,7 @@
     line-height: 1.65;
     font-weight: 300;
   }
-
+ 
   .hero-lock {
     display: inline-flex;
     align-items: center;
@@ -135,14 +135,14 @@
     font-weight: 500;
     letter-spacing: 0.04em;
   }
-
+ 
   /* MAIN */
   main {
     max-width: 660px;
     margin: 0 auto;
     padding: 32px 18px 64px;
   }
-
+ 
   /* STEP LABEL */
   .step-label {
     font-family: 'Montserrat', sans-serif;
@@ -153,7 +153,7 @@
     color: var(--gray-text);
     margin-bottom: 12px;
   }
-
+ 
   /* CATEGORIES */
   .categories {
     display: grid;
@@ -161,7 +161,7 @@
     gap: 10px;
     margin-bottom: 24px;
   }
-
+ 
   .cat-btn {
     display: flex;
     align-items: center;
@@ -176,19 +176,19 @@
     font-family: 'Open Sans', sans-serif;
     box-shadow: 0 1px 4px rgba(0,0,0,0.04);
   }
-
+ 
   .cat-btn:hover {
     border-color: var(--gold);
     background: var(--gold-pale);
     box-shadow: 0 2px 10px rgba(240,165,0,0.15);
   }
-
+ 
   .cat-btn.active {
     border-color: var(--gold);
     background: var(--gold-light);
     box-shadow: 0 0 0 1px var(--gold), 0 2px 10px rgba(240,165,0,0.2);
   }
-
+ 
   .cat-icon {
     width: 38px;
     height: 38px;
@@ -201,10 +201,10 @@
     background: var(--gray-light);
     transition: background 0.16s;
   }
-
+ 
   .cat-btn.active .cat-icon,
   .cat-btn:hover .cat-icon { background: #fde9a0; }
-
+ 
   .cat-info strong {
     display: block;
     font-size: 0.88rem;
@@ -212,13 +212,13 @@
     color: var(--black);
     font-family: 'Montserrat', sans-serif;
   }
-
+ 
   .cat-info small {
     font-size: 0.74rem;
     color: var(--gray-text);
     font-weight: 300;
   }
-
+ 
   /* FORM CARD */
   .form-card {
     background: var(--white);
@@ -229,12 +229,12 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     animation: fadeUp 0.22s ease;
   }
-
+ 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
+ 
   .form-card label {
     display: block;
     font-family: 'Montserrat', sans-serif;
@@ -245,7 +245,7 @@
     color: var(--gray-text);
     margin-bottom: 8px;
   }
-
+ 
   .form-card textarea {
     width: 100%;
     border: 1.5px solid var(--gray-mid);
@@ -260,11 +260,11 @@
     outline: none;
     transition: border-color 0.16s;
   }
-
+ 
   .form-card textarea:focus { border-color: var(--gold); }
-
+ 
   .optional-id { margin-top: 16px; }
-
+ 
   .optional-id input {
     width: 100%;
     border: 1.5px solid var(--gray-mid);
@@ -276,17 +276,17 @@
     outline: none;
     transition: border-color 0.16s;
   }
-
+ 
   .optional-id input:focus { border-color: var(--gold); }
   .optional-id input::placeholder { color: #ccc; }
-
+ 
   .char-count {
     text-align: right;
     font-size: 0.7rem;
     color: #ccc;
     margin-top: 4px;
   }
-
+ 
   /* SUBMIT */
   .btn-submit {
     width: 100%;
@@ -305,12 +305,12 @@
     margin-top: 18px;
     box-shadow: 0 3px 12px rgba(240,165,0,0.3);
   }
-
+ 
   .btn-submit:hover {
     background: var(--gold-dark);
     box-shadow: 0 4px 16px rgba(240,165,0,0.4);
   }
-
+ 
   /* SUCCESS */
   .success-card {
     background: var(--white);
@@ -322,7 +322,7 @@
     box-shadow: 0 4px 20px rgba(240,165,0,0.15);
     animation: fadeUp 0.3s ease;
   }
-
+ 
   .success-icon {
     width: 58px;
     height: 58px;
@@ -334,7 +334,7 @@
     margin: 0 auto 18px;
     box-shadow: 0 4px 16px rgba(240,165,0,0.35);
   }
-
+ 
   .success-card h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
@@ -342,7 +342,7 @@
     margin-bottom: 10px;
     color: var(--black);
   }
-
+ 
   .success-card p {
     color: var(--gray-text);
     font-size: 0.93rem;
@@ -350,7 +350,7 @@
     max-width: 360px;
     margin: 0 auto;
   }
-
+ 
   .btn-again {
     margin-top: 22px;
     display: inline-block;
@@ -367,15 +367,15 @@
     cursor: pointer;
     transition: all 0.16s;
   }
-
+ 
   .btn-again:hover { background: var(--gold); color: var(--white); }
-
+ 
   /* ── HR PANEL ── */
   .admin-toggle {
     text-align: center;
     margin-top: 36px;
   }
-
+ 
   .admin-toggle button {
     background: none;
     border: none;
@@ -388,9 +388,9 @@
     font-weight: 600;
     transition: color 0.16s;
   }
-
+ 
   .admin-toggle button:hover { color: var(--gray-text); }
-
+ 
   /* PASSWORD MODAL */
   .pw-overlay {
     display: none;
@@ -401,9 +401,9 @@
     align-items: center;
     justify-content: center;
   }
-
+ 
   .pw-overlay.show { display: flex; }
-
+ 
   .pw-box {
     background: var(--white);
     border-radius: 12px;
@@ -414,7 +414,7 @@
     box-shadow: 0 16px 48px rgba(0,0,0,0.2);
     animation: fadeUp 0.2s ease;
   }
-
+ 
   .pw-icon {
     width: 52px;
     height: 52px;
@@ -425,21 +425,21 @@
     justify-content: center;
     margin: 0 auto 16px;
   }
-
+ 
   .pw-box h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     font-size: 1.1rem;
     margin-bottom: 6px;
   }
-
+ 
   .pw-box p {
     font-size: 0.83rem;
     color: var(--gray-text);
     margin-bottom: 20px;
     line-height: 1.5;
   }
-
+ 
   .pw-input {
     width: 100%;
     border: 2px solid var(--gray-mid);
@@ -452,29 +452,29 @@
     outline: none;
     transition: border-color 0.16s;
   }
-
+ 
   .pw-input:focus { border-color: var(--gold); }
   .pw-input.error { border-color: #e74c3c; animation: shake 0.3s ease; }
-
+ 
   @keyframes shake {
     0%,100% { transform: translateX(0); }
     25% { transform: translateX(-6px); }
     75% { transform: translateX(6px); }
   }
-
+ 
   .pw-error {
     font-size: 0.77rem;
     color: #e74c3c;
     margin-top: 8px;
     display: none;
   }
-
+ 
   .pw-buttons {
     display: flex;
     gap: 10px;
     margin-top: 18px;
   }
-
+ 
   .pw-btn-cancel {
     flex: 1;
     background: none;
@@ -488,9 +488,9 @@
     cursor: pointer;
     transition: all 0.15s;
   }
-
+ 
   .pw-btn-cancel:hover { border-color: #999; color: var(--black); }
-
+ 
   .pw-btn-enter {
     flex: 1;
     background: var(--gold);
@@ -505,9 +505,9 @@
     transition: background 0.15s;
     letter-spacing: 0.06em;
   }
-
+ 
   .pw-btn-enter:hover { background: var(--gold-dark); }
-
+ 
   /* ADMIN PANEL */
   .admin-panel {
     background: var(--white);
@@ -518,7 +518,7 @@
     display: none;
     box-shadow: 0 4px 16px rgba(0,0,0,0.07);
   }
-
+ 
   .admin-header {
     background: var(--black);
     color: var(--white);
@@ -527,7 +527,7 @@
     justify-content: space-between;
     align-items: center;
   }
-
+ 
   .admin-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.75rem;
@@ -535,12 +535,12 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
   }
-
+ 
   .admin-header-right {
     display: flex;
     gap: 8px;
   }
-
+ 
   .admin-btn {
     background: none;
     border: 1px solid #444;
@@ -554,16 +554,16 @@
     letter-spacing: 0.08em;
     transition: all 0.14s;
   }
-
+ 
   .admin-btn:hover { border-color: var(--gold); color: var(--gold); }
-
+ 
   .admin-tabs {
     display: flex;
     border-bottom: 1px solid var(--gray-mid);
     overflow-x: auto;
     background: var(--gray-light);
   }
-
+ 
   .admin-tab {
     flex-shrink: 0;
     padding: 11px 16px;
@@ -582,13 +582,13 @@
     align-items: center;
     gap: 6px;
   }
-
+ 
   .admin-tab.active {
     color: var(--gold-dark);
     border-bottom-color: var(--gold);
     background: var(--white);
   }
-
+ 
   .badge {
     background: var(--gold);
     color: var(--white);
@@ -597,9 +597,9 @@
     padding: 1px 6px;
     font-weight: 700;
   }
-
+ 
   .admin-content { padding: 18px; min-height: 110px; }
-
+ 
   .entry-card {
     border: 1px solid var(--gray-mid);
     border-radius: var(--radius);
@@ -608,9 +608,9 @@
     animation: fadeUp 0.18s ease;
     background: var(--white);
   }
-
+ 
   .entry-card:hover { border-color: var(--gold); }
-
+ 
   .entry-meta {
     display: flex;
     align-items: center;
@@ -618,7 +618,7 @@
     margin-bottom: 8px;
     flex-wrap: wrap;
   }
-
+ 
   .entry-tag {
     font-size: 0.66rem;
     font-family: 'Montserrat', sans-serif;
@@ -628,23 +628,23 @@
     padding: 2px 8px;
     border-radius: 4px;
   }
-
+ 
   .tag-suggestion { background: #e8f4fd; color: #1a6fa0; }
   .tag-complaint  { background: #fdecea; color: #b71c1c; }
   .tag-question   { background: #fff8e7; color: #996600; }
   .tag-compliment { background: #eafaf1; color: #1a7a4a; }
-
+ 
   .entry-author { font-size: 0.78rem; color: var(--gray-text); }
   .entry-date   { font-size: 0.7rem; color: #bbb; margin-left: auto; }
   .entry-text   { font-size: 0.89rem; line-height: 1.6; color: var(--black); }
-
+ 
   .empty-state {
     text-align: center;
     padding: 36px;
     color: #ccc;
     font-size: 0.88rem;
   }
-
+ 
   /* FOOTER */
   footer {
     background: var(--black);
@@ -656,7 +656,7 @@
     letter-spacing: 0.06em;
     font-family: 'Montserrat', sans-serif;
   }
-
+ 
   @media (max-width: 420px) {
     .categories { grid-template-columns: 1fr; }
     header { padding: 13px 14px; }
@@ -665,7 +665,7 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- HEADER -->
 <header>
   <div class="logo-mark">C</div>
@@ -676,7 +676,7 @@
   <div class="header-sep"></div>
   <div class="header-badge">Employee Voice</div>
 </header>
-
+ 
 <!-- HERO -->
 <div class="hero">
   <h1>Your Voice Matters</h1>
@@ -686,7 +686,7 @@
     Anonymous by default — your name is optional
   </div>
 </div>
-
+ 
 <main>
   <!-- FORM -->
   <div id="form-section">
@@ -709,21 +709,21 @@
         <div class="cat-info"><strong>Compliment</strong><small>Recognize someone</small></div>
       </button>
     </div>
-
+ 
     <div class="form-card" id="msg-card" style="display:none">
       <label for="msg-text">Step 2 — Your message</label>
       <textarea id="msg-text" placeholder="Write your message here..." maxlength="600" oninput="updateCount()"></textarea>
       <div class="char-count"><span id="char-count">0</span> / 600</div>
-
+ 
       <div class="optional-id">
         <label for="name-input">Step 3 — Your name <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:0.8rem;">(optional)</span></label>
         <input type="text" id="name-input" placeholder="Leave blank to stay anonymous" maxlength="60">
       </div>
-
+ 
       <button class="btn-submit" onclick="submitFeedback()">Submit Feedback</button>
     </div>
   </div>
-
+ 
   <!-- SUCCESS -->
   <div class="success-card" id="success-card">
     <div class="success-icon">
@@ -733,12 +733,12 @@
     <p>Your feedback has been received and will be reviewed by HR. We appreciate you speaking up.</p>
     <button class="btn-again" onclick="resetForm()">Submit another response</button>
   </div>
-
+ 
   <!-- HR TOGGLE (subtle, at the very bottom) -->
   <div class="admin-toggle">
     <button onclick="openPasswordModal()">· · ·</button>
   </div>
-
+ 
   <!-- ADMIN PANEL (only shown after correct password) -->
   <div class="admin-panel" id="admin-panel">
     <div class="admin-header">
@@ -752,11 +752,11 @@
     <div class="admin-content" id="admin-content"></div>
   </div>
 </main>
-
+ 
 <footer>
   © 2026 Capital Fine Meats™ &nbsp;·&nbsp; Internal Use Only
 </footer>
-
+ 
 <!-- PASSWORD MODAL -->
 <div class="pw-overlay" id="pw-overlay">
   <div class="pw-box">
@@ -779,12 +779,12 @@
     </div>
   </div>
 </div>
-
+ 
 <script>
   // ── CHANGE THIS PASSWORD ──────────────────────────────
   const HR_PASSWORD = 'capital2026';
   // ─────────────────────────────────────────────────────
-
+ 
   const CATS = ['All', 'Suggestion', 'Complaint', 'Question', 'Compliment'];
   const TAG_CLASS = {
     Suggestion: 'tag-suggestion',
@@ -792,12 +792,12 @@
     Question:   'tag-question',
     Compliment: 'tag-compliment',
   };
-
+ 
   let selectedCat  = null;
   let adminFilter  = 'All';
   let adminUnlocked = false;
   let entries = JSON.parse(localStorage.getItem('cfm_feedback') || '[]');
-
+ 
   // ── FORM ────────────────────────────────────────────
   function selectCat(btn) {
     document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
@@ -807,29 +807,29 @@
     card.style.display = 'block';
     card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
-
+ 
   function updateCount() {
     document.getElementById('char-count').textContent =
       document.getElementById('msg-text').value.length;
   }
-
+ 
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwYfaDybpebfVEw0xOn3Exf_gXaFvhxQ5ZCc_zURPNwndcbnq6uC3zknUjD7VnDia8E6g/exec';
-
+ 
   function submitFeedback() {
     const msg = document.getElementById('msg-text').value.trim();
     if (!selectedCat) { alert('Please choose a category first.'); return; }
     if (!msg) { alert('Please write your message before submitting.'); return; }
-
+ 
     const btn = document.querySelector('.btn-submit');
     btn.disabled = true;
     btn.textContent = 'Sending...';
-
+ 
     const entry = {
       category: selectedCat,
       message: msg,
       author: document.getElementById('name-input').value.trim() || 'Anonymous'
     };
-
+ 
     fetch(SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -848,7 +848,7 @@
       btn.textContent = 'Submit Feedback';
     });
   }
-
+ 
   function resetForm() {
     selectedCat = null;
     document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
@@ -859,7 +859,7 @@
     document.getElementById('success-card').style.display = 'none';
     document.getElementById('form-section').style.display = 'block';
   }
-
+ 
   // ── PASSWORD ─────────────────────────────────────────
   function openPasswordModal() {
     if (adminUnlocked) {
@@ -869,14 +869,14 @@
     document.getElementById('pw-overlay').classList.add('show');
     setTimeout(() => document.getElementById('pw-input').focus(), 100);
   }
-
+ 
   function closePwModal() {
     document.getElementById('pw-overlay').classList.remove('show');
     document.getElementById('pw-input').value = '';
     document.getElementById('pw-input').classList.remove('error');
     document.getElementById('pw-error').style.display = 'none';
   }
-
+ 
   function checkPassword() {
     const val = document.getElementById('pw-input').value;
     if (val === HR_PASSWORD) {
@@ -893,19 +893,19 @@
       setTimeout(() => input.classList.remove('error'), 400);
     }
   }
-
+ 
   function toggleAdmin() {
     const panel = document.getElementById('admin-panel');
     const isOpen = panel.style.display === 'block';
     panel.style.display = isOpen ? 'none' : 'block';
     if (!isOpen) renderAdmin();
   }
-
+ 
   function lockAdmin() {
     adminUnlocked = false;
     document.getElementById('admin-panel').style.display = 'none';
   }
-
+ 
   // ── ADMIN RENDER ──────────────────────────────────────
   function renderAdmin() {
     const tabBar = document.getElementById('admin-tabs');
@@ -920,17 +920,17 @@
       btn.onclick = () => { adminFilter = cat; renderAdmin(); };
       tabBar.appendChild(btn);
     });
-
+ 
     const content = document.getElementById('admin-content');
     const filtered = adminFilter === 'All'
       ? entries
       : entries.filter(e => e.category === adminFilter);
-
+ 
     if (filtered.length === 0) {
       content.innerHTML = '<div class="empty-state">No entries in this category yet.</div>';
       return;
     }
-
+ 
     content.innerHTML = filtered.map(e => `
       <div class="entry-card">
         <div class="entry-meta">
@@ -942,7 +942,7 @@
       </div>
     `).join('');
   }
-
+ 
   function clearAll() {
     if (confirm('Delete all feedback entries? This cannot be undone.')) {
       entries = [];
@@ -953,3 +953,4 @@
 </script>
 </body>
 </html>
+ 
