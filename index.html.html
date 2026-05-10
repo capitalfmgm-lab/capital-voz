@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Employee Voice — Capital Fine Meats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #f0a500;
+    --gold-dark: #c88600;
+    --gold-light: #fff8e7;
+    --gold-pale: #fffbf0;
+    --white: #ffffff;
+    --black: #1a1a1a;
+    --gray-light: #f7f7f7;
+    --gray-mid: #e4e4e4;
+    --gray-text: #777777;
+    --radius: 8px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--gray-light);
+    color: var(--black);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--white);
+    border-bottom: 3px solid var(--gold);
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .logo-mark {
+    width: 42px;
+    height: 42px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--white);
+    flex-shrink: 0;
+    letter-spacing: -0.03em;
+  }
+
+  .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--black);
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+  }
+
+  .logo-text span {
+    display: block;
+    font-size: 0.6rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+  }
+
+  .header-sep { flex: 1; }
+
+  .header-badge {
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--gold) 0%, #e09600 100%);
+    text-align: center;
+    padding: 48px 24px 40px;
+  }
+
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.7rem, 5vw, 2.6rem);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+
+  .hero p {
+    font-size: 0.97rem;
+    color: rgba(255,255,255,0.88);
+    max-width: 440px;
+    margin: 0 auto;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .hero-lock {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.22);
+    border-radius: 20px;
+    padding: 5px 14px;
+    margin-top: 16px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 32px 18px 64px;
+  }
+
+  /* STEP LABEL */
+  .step-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 12px;
+  }
+
+  /* CATEGORIES */
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .cat-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--white);
+    border: 2px solid var(--gray-mid);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.16s ease;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .cat-btn:hover {
+    border-color: var(--gold);
+    background: var(--gold-pale);
+    box-shadow: 0 2px 10px rgba(240,165,0,0.15);
+  }
+
+  .cat-btn.active {
+    border-color: var(--gold);
+    background: var(--gold-light);
+    box-shadow: 0 0 0 1px var(--gold), 0 2px 10px rgba(240,165,0,0.2);
+  }
+
+  .cat-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+    background: var(--gray-light);
+    transition: background 0.16s;
+  }
+
+  .cat-btn.active .cat-icon,
+  .cat-btn:hover .cat-icon { background: #fde9a0; }
+
+  .cat-info strong {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--black);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .cat-info small {
+    font-size: 0.74rem;
+    color: var(--gray-text);
+    font-weight: 300;
+  }
+
+  /* FORM CARD */
+  .form-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-mid);
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    animation: fadeUp 0.22s ease;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .form-card label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 8px;
+  }
+
+  .form-card textarea {
+    width: 100%;
+    border: 1.5px solid var(--gray-mid);
+    border-radius: var(--radius);
+    padding: 13px 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.93rem;
+    line-height: 1.65;
+    color: var(--black);
+    resize: vertical;
+    min-height: 115px;
+    outline: none;
+    transition: border-color 0.16s;
+  }
+
+  .form-card textarea:focus { border-color: var(--gold); }
+
+  .optional-id { margin-top: 16px; }
+
+  .optional-id input {
+    width: 100%;
+    border: 1.5px solid var(--gray-mid);
+    border-radius: var(--radius);
+    padding: 10px 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.88rem;
+    color: var(--black);
+    outline: none;
+    transition: border-color 0.16s;
+  }
+
+  .optional-id input:focus { border-color: var(--gold); }
+  .optional-id input::placeholder { color: #ccc; }
+
+  .char-count {
+    text-align: right;
+    font-size: 0.7rem;
+    color: #ccc;
+    margin-top: 4px;
+  }
+
+  /* SUBMIT */
+  .btn-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    padding: 14px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.16s, box-shadow 0.16s;
+    margin-top: 18px;
+    box-shadow: 0 3px 12px rgba(240,165,0,0.3);
+  }
+
+  .btn-submit:hover {
+    background: var(--gold-dark);
+    box-shadow: 0 4px 16px rgba(240,165,0,0.4);
+  }
+
+  /* SUCCESS */
+  .success-card {
+    background: var(--white);
+    border: 2px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 40px 28px;
+    text-align: center;
+    display: none;
+    box-shadow: 0 4px 20px rgba(240,165,0,0.15);
+    animation: fadeUp 0.3s ease;
+  }
+
+  .success-icon {
+    width: 58px;
+    height: 58px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    box-shadow: 0 4px 16px rgba(240,165,0,0.35);
+  }
+
+  .success-card h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--black);
+  }
+
+  .success-card p {
+    color: var(--gray-text);
+    font-size: 0.93rem;
+    line-height: 1.65;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .btn-again {
+    margin-top: 22px;
+    display: inline-block;
+    background: none;
+    border: 2px solid var(--gold);
+    color: var(--gold-dark);
+    border-radius: var(--radius);
+    padding: 10px 26px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.16s;
+  }
+
+  .btn-again:hover { background: var(--gold); color: var(--white); }
+
+  /* ── HR PANEL ── */
+  .admin-toggle {
+    text-align: center;
+    margin-top: 36px;
+  }
+
+  .admin-toggle button {
+    background: none;
+    border: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ccc;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: color 0.16s;
+  }
+
+  .admin-toggle button:hover { color: var(--gray-text); }
+
+  /* PASSWORD MODAL */
+  .pw-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pw-overlay.show { display: flex; }
+
+  .pw-box {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 36px 32px;
+    max-width: 340px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+    animation: fadeUp 0.2s ease;
+  }
+
+  .pw-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+  }
+
+  .pw-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+
+  .pw-box p {
+    font-size: 0.83rem;
+    color: var(--gray-text);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .pw-input {
+    width: 100%;
+    border: 2px solid var(--gray-mid);
+    border-radius: var(--radius);
+    padding: 11px 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    text-align: center;
+    letter-spacing: 0.1em;
+    outline: none;
+    transition: border-color 0.16s;
+  }
+
+  .pw-input:focus { border-color: var(--gold); }
+  .pw-input.error { border-color: #e74c3c; animation: shake 0.3s ease; }
+
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+
+  .pw-error {
+    font-size: 0.77rem;
+    color: #e74c3c;
+    margin-top: 8px;
+    display: none;
+  }
+
+  .pw-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .pw-btn-cancel {
+    flex: 1;
+    background: none;
+    border: 1.5px solid var(--gray-mid);
+    border-radius: var(--radius);
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gray-text);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .pw-btn-cancel:hover { border-color: #999; color: var(--black); }
+
+  .pw-btn-enter {
+    flex: 1;
+    background: var(--gold);
+    border: none;
+    border-radius: var(--radius);
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--white);
+    cursor: pointer;
+    transition: background 0.15s;
+    letter-spacing: 0.06em;
+  }
+
+  .pw-btn-enter:hover { background: var(--gold-dark); }
+
+  /* ADMIN PANEL */
+  .admin-panel {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-mid);
+    margin-top: 12px;
+    overflow: hidden;
+    display: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  }
+
+  .admin-header {
+    background: var(--black);
+    color: var(--white);
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .admin-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .admin-header-right {
+    display: flex;
+    gap: 8px;
+  }
+
+  .admin-btn {
+    background: none;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.67rem;
+    color: #aaa;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    transition: all 0.14s;
+  }
+
+  .admin-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  .admin-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--gray-mid);
+    overflow-x: auto;
+    background: var(--gray-light);
+  }
+
+  .admin-tab {
+    flex-shrink: 0;
+    padding: 11px 16px;
+    font-size: 0.75rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--gray-text);
+    border-bottom: 3px solid transparent;
+    transition: all 0.16s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .admin-tab.active {
+    color: var(--gold-dark);
+    border-bottom-color: var(--gold);
+    background: var(--white);
+  }
+
+  .badge {
+    background: var(--gold);
+    color: var(--white);
+    border-radius: 10px;
+    font-size: 0.62rem;
+    padding: 1px 6px;
+    font-weight: 700;
+  }
+
+  .admin-content { padding: 18px; min-height: 110px; }
+
+  .entry-card {
+    border: 1px solid var(--gray-mid);
+    border-radius: var(--radius);
+    padding: 13px 16px;
+    margin-bottom: 10px;
+    animation: fadeUp 0.18s ease;
+    background: var(--white);
+  }
+
+  .entry-card:hover { border-color: var(--gold); }
+
+  .entry-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .entry-tag {
+    font-size: 0.66rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .tag-suggestion { background: #e8f4fd; color: #1a6fa0; }
+  .tag-complaint  { background: #fdecea; color: #b71c1c; }
+  .tag-question   { background: #fff8e7; color: #996600; }
+  .tag-compliment { background: #eafaf1; color: #1a7a4a; }
+
+  .entry-author { font-size: 0.78rem; color: var(--gray-text); }
+  .entry-date   { font-size: 0.7rem; color: #bbb; margin-left: auto; }
+  .entry-text   { font-size: 0.89rem; line-height: 1.6; color: var(--black); }
+
+  .empty-state {
+    text-align: center;
+    padding: 36px;
+    color: #ccc;
+    font-size: 0.88rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    border-top: 3px solid var(--gold);
+    text-align: center;
+    padding: 18px;
+    color: #555;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  @media (max-width: 420px) {
+    .categories { grid-template-columns: 1fr; }
+    header { padding: 13px 14px; }
+    .hero { padding: 36px 16px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-mark">C</div>
+  <div class="logo-text">
+    Capital<sup style="font-size:0.55em;color:var(--gold)">®</sup>
+    <span>Fine Meats</span>
+  </div>
+  <div class="header-sep"></div>
+  <div class="header-badge">Employee Voice</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Your Voice Matters</h1>
+  <p>Share suggestions, concerns, questions, or compliments. All responses go directly to HR.</p>
+  <div class="hero-lock">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    Anonymous by default — your name is optional
+  </div>
+</div>
+
+<main>
+  <!-- FORM -->
+  <div id="form-section">
+    <p class="step-label">Step 1 — Select a category</p>
+    <div class="categories">
+      <button class="cat-btn" data-cat="Suggestion" onclick="selectCat(this)">
+        <div class="cat-icon">💡</div>
+        <div class="cat-info"><strong>Suggestion</strong><small>Improve something</small></div>
+      </button>
+      <button class="cat-btn" data-cat="Complaint" onclick="selectCat(this)">
+        <div class="cat-icon">⚠️</div>
+        <div class="cat-info"><strong>Complaint</strong><small>Report an issue</small></div>
+      </button>
+      <button class="cat-btn" data-cat="Question" onclick="selectCat(this)">
+        <div class="cat-icon">❓</div>
+        <div class="cat-info"><strong>Question</strong><small>Ask HR something</small></div>
+      </button>
+      <button class="cat-btn" data-cat="Compliment" onclick="selectCat(this)">
+        <div class="cat-icon">⭐</div>
+        <div class="cat-info"><strong>Compliment</strong><small>Recognize someone</small></div>
+      </button>
+    </div>
+
+    <div class="form-card" id="msg-card" style="display:none">
+      <label for="msg-text">Step 2 — Your message</label>
+      <textarea id="msg-text" placeholder="Write your message here..." maxlength="600" oninput="updateCount()"></textarea>
+      <div class="char-count"><span id="char-count">0</span> / 600</div>
+
+      <div class="optional-id">
+        <label for="name-input">Step 3 — Your name <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:0.8rem;">(optional)</span></label>
+        <input type="text" id="name-input" placeholder="Leave blank to stay anonymous" maxlength="60">
+      </div>
+
+      <button class="btn-submit" onclick="submitFeedback()">Submit Feedback</button>
+    </div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="success-card" id="success-card">
+    <div class="success-icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2>Thank you!</h2>
+    <p>Your feedback has been received and will be reviewed by HR. We appreciate you speaking up.</p>
+    <button class="btn-again" onclick="resetForm()">Submit another response</button>
+  </div>
+
+  <!-- HR TOGGLE (subtle, at the very bottom) -->
+  <div class="admin-toggle">
+    <button onclick="openPasswordModal()">· · ·</button>
+  </div>
+
+  <!-- ADMIN PANEL (only shown after correct password) -->
+  <div class="admin-panel" id="admin-panel">
+    <div class="admin-header">
+      <span class="admin-title">HR Feedback Dashboard</span>
+      <div class="admin-header-right">
+        <button class="admin-btn" onclick="clearAll()">Clear all</button>
+        <button class="admin-btn" onclick="lockAdmin()">Lock</button>
+      </div>
+    </div>
+    <div class="admin-tabs" id="admin-tabs"></div>
+    <div class="admin-content" id="admin-content"></div>
+  </div>
+</main>
+
+<footer>
+  © 2026 Capital Fine Meats™ &nbsp;·&nbsp; Internal Use Only
+</footer>
+
+<!-- PASSWORD MODAL -->
+<div class="pw-overlay" id="pw-overlay">
+  <div class="pw-box">
+    <div class="pw-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <h3>HR Access Only</h3>
+    <p>This area is restricted to Human Resources staff. Please enter the access password.</p>
+    <input
+      class="pw-input"
+      id="pw-input"
+      type="password"
+      placeholder="Password"
+      onkeydown="if(event.key==='Enter') checkPassword()"
+    >
+    <div class="pw-error" id="pw-error">Incorrect password. Please try again.</div>
+    <div class="pw-buttons">
+      <button class="pw-btn-cancel" onclick="closePwModal()">Cancel</button>
+      <button class="pw-btn-enter" onclick="checkPassword()">Enter</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── CHANGE THIS PASSWORD ──────────────────────────────
+  const HR_PASSWORD = 'capital2026';
+  // ─────────────────────────────────────────────────────
+
+  const CATS = ['All', 'Suggestion', 'Complaint', 'Question', 'Compliment'];
+  const TAG_CLASS = {
+    Suggestion: 'tag-suggestion',
+    Complaint:  'tag-complaint',
+    Question:   'tag-question',
+    Compliment: 'tag-compliment',
+  };
+
+  let selectedCat  = null;
+  let adminFilter  = 'All';
+  let adminUnlocked = false;
+  let entries = JSON.parse(localStorage.getItem('cfm_feedback') || '[]');
+
+  // ── FORM ────────────────────────────────────────────
+  function selectCat(btn) {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedCat = btn.dataset.cat;
+    const card = document.getElementById('msg-card');
+    card.style.display = 'block';
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function updateCount() {
+    document.getElementById('char-count').textContent =
+      document.getElementById('msg-text').value.length;
+  }
+
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwYfaDybpebfVEw0xOn3Exf_gXaFvhxQ5ZCc_zURPNwndcbnq6uC3zknUjD7VnDia8E6g/exec';
+
+  function submitFeedback() {
+    const msg = document.getElementById('msg-text').value.trim();
+    if (!selectedCat) { alert('Please choose a category first.'); return; }
+    if (!msg) { alert('Please write your message before submitting.'); return; }
+
+    const btn = document.querySelector('.btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    const entry = {
+      category: selectedCat,
+      message: msg,
+      author: document.getElementById('name-input').value.trim() || 'Anonymous'
+    };
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(entry)
+    })
+    .then(() => {
+      document.getElementById('form-section').style.display = 'none';
+      document.getElementById('success-card').style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Submit Feedback';
+    })
+    .catch(() => {
+      alert('Something went wrong. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Submit Feedback';
+    });
+  }
+
+  function resetForm() {
+    selectedCat = null;
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('msg-text').value = '';
+    document.getElementById('name-input').value = '';
+    document.getElementById('char-count').textContent = '0';
+    document.getElementById('msg-card').style.display = 'none';
+    document.getElementById('success-card').style.display = 'none';
+    document.getElementById('form-section').style.display = 'block';
+  }
+
+  // ── PASSWORD ─────────────────────────────────────────
+  function openPasswordModal() {
+    if (adminUnlocked) {
+      toggleAdmin();
+      return;
+    }
+    document.getElementById('pw-overlay').classList.add('show');
+    setTimeout(() => document.getElementById('pw-input').focus(), 100);
+  }
+
+  function closePwModal() {
+    document.getElementById('pw-overlay').classList.remove('show');
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').classList.remove('error');
+    document.getElementById('pw-error').style.display = 'none';
+  }
+
+  function checkPassword() {
+    const val = document.getElementById('pw-input').value;
+    if (val === HR_PASSWORD) {
+      adminUnlocked = true;
+      closePwModal();
+      document.getElementById('admin-panel').style.display = 'block';
+      renderAdmin();
+      document.getElementById('admin-panel').scrollIntoView({ behavior: 'smooth' });
+    } else {
+      const input = document.getElementById('pw-input');
+      input.classList.add('error');
+      document.getElementById('pw-error').style.display = 'block';
+      input.value = '';
+      setTimeout(() => input.classList.remove('error'), 400);
+    }
+  }
+
+  function toggleAdmin() {
+    const panel = document.getElementById('admin-panel');
+    const isOpen = panel.style.display === 'block';
+    panel.style.display = isOpen ? 'none' : 'block';
+    if (!isOpen) renderAdmin();
+  }
+
+  function lockAdmin() {
+    adminUnlocked = false;
+    document.getElementById('admin-panel').style.display = 'none';
+  }
+
+  // ── ADMIN RENDER ──────────────────────────────────────
+  function renderAdmin() {
+    const tabBar = document.getElementById('admin-tabs');
+    tabBar.innerHTML = '';
+    CATS.forEach(cat => {
+      const count = cat === 'All'
+        ? entries.length
+        : entries.filter(e => e.category === cat).length;
+      const btn = document.createElement('button');
+      btn.className = 'admin-tab' + (adminFilter === cat ? ' active' : '');
+      btn.innerHTML = cat + (count > 0 ? ` <span class="badge">${count}</span>` : '');
+      btn.onclick = () => { adminFilter = cat; renderAdmin(); };
+      tabBar.appendChild(btn);
+    });
+
+    const content = document.getElementById('admin-content');
+    const filtered = adminFilter === 'All'
+      ? entries
+      : entries.filter(e => e.category === adminFilter);
+
+    if (filtered.length === 0) {
+      content.innerHTML = '<div class="empty-state">No entries in this category yet.</div>';
+      return;
+    }
+
+    content.innerHTML = filtered.map(e => `
+      <div class="entry-card">
+        <div class="entry-meta">
+          <span class="entry-tag ${TAG_CLASS[e.category]}">${e.category}</span>
+          <span class="entry-author">${e.author}</span>
+          <span class="entry-date">${e.date}</span>
+        </div>
+        <div class="entry-text">${e.message.replace(/</g,'&lt;')}</div>
+      </div>
+    `).join('');
+  }
+
+  function clearAll() {
+    if (confirm('Delete all feedback entries? This cannot be undone.')) {
+      entries = [];
+      localStorage.setItem('cfm_feedback', '[]');
+      renderAdmin();
+    }
+  }
+</script>
+</body>
+</html>
